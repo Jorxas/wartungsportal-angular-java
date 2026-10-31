@@ -1,0 +1,17 @@
+{
+  "id": "P04",
+  "status": "initialisiert",
+  "businessImplemented": false,
+  "fixture": "beispieldaten/auftraege.json",
+  "format": "json",
+  "expectedRecords": 2,
+  "starter": "src/backend/Main.java",
+  "command": "java src/backend/Main.java",
+  "implementationTickets": [
+    "P04-T01",
+    "P04-T02",
+    "P04-T03",
+    "P04-T04"
+  ],
+  "language": "de"
+}

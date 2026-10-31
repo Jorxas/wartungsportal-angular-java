@@ -1,0 +1,27 @@
+{
+  "status": "geplant",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/auftraege",
+      "result": "Wartungsauftrag[]"
+    },
+    {
+      "method": "POST",
+      "path": "/auftraege",
+      "required": [
+        "bezeichnung",
+        "prioritaet"
+      ],
+      "result": "Wartungsauftrag"
+    },
+    {
+      "method": "PATCH",
+      "path": "/auftraege/:kennung",
+      "required": [
+        "zustand"
+      ],
+      "result": "Wartungsauftrag"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "kennung": "A01",
+    "bezeichnung": "Sensor prüfen",
+    "prioritaet": "normal",
+    "zustand": "offen"
+  },
+  {
+    "kennung": "A02",
+    "bezeichnung": "Kabel austauschen",
+    "prioritaet": "hoch",
+    "zustand": "erledigt"
+  }
+]
