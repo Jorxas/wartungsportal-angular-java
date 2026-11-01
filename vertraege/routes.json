@@ -1,10 +1,35 @@
 {
-  "status": "geplant",
+  "status": "entworfen; lokal pruefbar; HTTP-Umsetzung offen",
+  "modell": {
+    "kennung": {"typ": "zeichenkette", "muster": "^A[0-9]{2,}$"},
+    "bezeichnung": {"typ": "zeichenkette", "mindestlaenge": 1, "hoechstlaenge": 120, "nichtNurLeerraum": true},
+    "prioritaet": {"typ": "zeichenkette", "werte": ["normal", "hoch"]},
+    "zustand": {"typ": "zeichenkette", "werte": ["offen", "erledigt"]}
+  },
+  "fehler": {
+    "400": {"code": "ungueltige_anfrage", "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."},
+    "404": {"code": "auftrag_nicht_gefunden", "meldung": "Der angefragte Auftrag wurde nicht gefunden."}
+  },
   "routes": [
     {
       "method": "GET",
       "path": "/auftraege",
-      "result": "Wartungsauftrag[]"
+      "result": "Wartungsauftrag[]",
+      "erfolg": 200,
+      "eingabefelder": [],
+      "required": [],
+      "rumpfErlaubt": false,
+      "fehlercodes": [400]
+    },
+    {
+      "method": "GET",
+      "path": "/auftraege/:kennung",
+      "result": "Wartungsauftrag",
+      "erfolg": 200,
+      "eingabefelder": [],
+      "required": [],
+      "rumpfErlaubt": false,
+      "fehlercodes": [400, 404]
     },
     {
       "method": "POST",
@@ -13,7 +38,12 @@
         "bezeichnung",
         "prioritaet"
       ],
-      "result": "Wartungsauftrag"
+      "result": "Wartungsauftrag",
+      "erfolg": 201,
+      "eingabefelder": ["bezeichnung", "prioritaet"],
+      "rumpfErlaubt": true,
+      "vorgaben": {"zustand": "offen"},
+      "fehlercodes": [400]
     },
     {
       "method": "PATCH",
@@ -21,7 +51,11 @@
       "required": [
         "zustand"
       ],
-      "result": "Wartungsauftrag"
+      "result": "Wartungsauftrag",
+      "erfolg": 200,
+      "eingabefelder": ["zustand"],
+      "rumpfErlaubt": true,
+      "fehlercodes": [400, 404]
     }
   ]
 }

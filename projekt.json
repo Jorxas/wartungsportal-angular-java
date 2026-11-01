@@ -1,6 +1,6 @@
 {
   "id": "P04",
-  "status": "initialisiert",
+  "status": "vertrag_entworfen",
   "businessImplemented": false,
   "fixture": "beispieldaten/auftraege.json",
   "format": "json",
