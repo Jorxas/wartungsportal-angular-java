@@ -1,0 +1,61 @@
+{
+  "bestanden": false,
+  "fehler": "Command '['java', '-Dfile.encoding=UTF-8', 'src/backend/Main.java', '0']' timed out after 10 seconds",
+  "projekt": "P04",
+  "ticket": "P04-T02",
+  "beginnUtc": "2026-11-02T07:26:30.058885+00:00",
+  "endeUtc": "2026-11-02T07:26:58.950177+00:00",
+  "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+  "java": "java version \"25\" 2025-09-16 LTS\nJava(TM) SE Runtime Environment (build 25+37-LTS-3491)\nJava HotSpot(TM) 64-Bit Server VM (build 25+37-LTS-3491, mixed mode, sharing)",
+  "befehl": "uv run --offline --python 3.12 python -X utf8 pruefungen/api_pruefen.py",
+  "httpAnfragen": 1,
+  "ergebnisse": [
+    {
+      "fall": "liste",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "Date": "Mon, 02 Nov 2026 07:26:38 GMT",
+        "Content-type": "application/json; charset=utf-8",
+        "Content-length": "183"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ],
+      "bestanden": true
+    }
+  ],
+  "serverlaeufe": [
+    {
+      "befehl": [
+        "java",
+        "-Dfile.encoding=UTF-8",
+        "src/backend/Main.java",
+        "0"
+      ],
+      "beginnUtc": "2026-11-02T07:26:30.074067+00:00",
+      "startmeldung": "API bereit: http://127.0.0.1:55234"
+    }
+  ],
+  "sha256": {
+    "src/backend/Main.java": "da40f8a85005e6eef6beac169a7e516d390b3a4d6dd0627b2e855d71f0032c62",
+    "pruefungen/api_pruefen.py": "93882df066681acbb81878eb4384f64e493772373c7a49cfb1ffa668a321dad1",
+    "beispieldaten/auftraege.json": "1d640936640360cefa05900f32af7a98cd230050a194685a892af919abdc06b0",
+    "vertraege/routes.json": "1bb8c12d7f44eb923ff0aad985109068f395b28ea941b5269305aa2f6769feb8",
+    "vertraege/anfragen.json": "ef296b632c5f416ca435be402d2a654bb8ad69d3449c7ad5f15541b0fbff5bc4"
+  },
+  "grenze": "Echte lokale Java-HTTP-API; kein PATCH, Angular, Spring oder dauerhafter Speicher"
+}
