@@ -1,0 +1,232 @@
+{
+  "auftraege": 2,
+  "routen": 4,
+  "anfragen": 30,
+  "ergebnisse": [
+    {
+      "fall": "liste",
+      "erwartet": 200,
+      "eingeordnet": 200,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "detail_vorhanden",
+      "erwartet": 200,
+      "eingeordnet": 200,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "anlegen",
+      "erwartet": 201,
+      "eingeordnet": 201,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "bezeichnung_120_zeichen",
+      "erwartet": 201,
+      "eingeordnet": 201,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "bezeichnung_ein_zeichen",
+      "erwartet": 201,
+      "eingeordnet": 201,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "erledigen",
+      "erwartet": 200,
+      "eingeordnet": 200,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "wieder_oeffnen",
+      "erwartet": 200,
+      "eingeordnet": 200,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "zustand_wiederholen",
+      "erwartet": 200,
+      "eingeordnet": 200,
+      "bestanden": true,
+      "grund": "Anfrage entspricht den Vertragsregeln"
+    },
+    {
+      "fall": "bezeichnung_leer",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: bezeichnung"
+    },
+    {
+      "fall": "bezeichnung_leerraum",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: bezeichnung"
+    },
+    {
+      "fall": "bezeichnung_121_zeichen",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: bezeichnung"
+    },
+    {
+      "fall": "prioritaet_fehlt",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Pflichtfeld fehlt oder zusätzliches Feld vorhanden"
+    },
+    {
+      "fall": "prioritaet_unbekannt",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: prioritaet"
+    },
+    {
+      "fall": "bezeichnung_null",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: bezeichnung"
+    },
+    {
+      "fall": "bezeichnung_zahl",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: bezeichnung"
+    },
+    {
+      "fall": "kennung_vom_client",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Pflichtfeld fehlt oder zusätzliches Feld vorhanden"
+    },
+    {
+      "fall": "zustand_beim_anlegen",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Pflichtfeld fehlt oder zusätzliches Feld vorhanden"
+    },
+    {
+      "fall": "zustand_unbekannt",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: zustand"
+    },
+    {
+      "fall": "zustand_fehlt",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Pflichtfeld fehlt oder zusätzliches Feld vorhanden"
+    },
+    {
+      "fall": "patch_zusatzfeld",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Pflichtfeld fehlt oder zusätzliches Feld vorhanden"
+    },
+    {
+      "fall": "rumpf_fehlt",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Rumpf fehlt"
+    },
+    {
+      "fall": "rumpf_array",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "JSON-Objekt erforderlich"
+    },
+    {
+      "fall": "json_kaputt",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "JSON ungültig oder Schlüssel doppelt"
+    },
+    {
+      "fall": "json_doppelter_schluessel",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "JSON ungültig oder Schlüssel doppelt"
+    },
+    {
+      "fall": "get_mit_rumpf",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Rumpf für Leseroute nicht erlaubt"
+    },
+    {
+      "fall": "abfrageparameter",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Abfrageparameter sind nicht vorgesehen"
+    },
+    {
+      "fall": "kennung_falsches_format",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Kennungsformat ungültig"
+    },
+    {
+      "fall": "detail_unbekannt",
+      "erwartet": 404,
+      "eingeordnet": 404,
+      "bestanden": true,
+      "grund": "Gültige Kennung fehlt im unveränderten Beispieldatensatz"
+    },
+    {
+      "fall": "patch_unbekannt",
+      "erwartet": 404,
+      "eingeordnet": 404,
+      "bestanden": true,
+      "grund": "Gültige Kennung fehlt im unveränderten Beispieldatensatz"
+    },
+    {
+      "fall": "eingabefehler_vor_existenz",
+      "erwartet": 400,
+      "eingeordnet": 400,
+      "bestanden": true,
+      "grund": "Feld ungültig: zustand"
+    }
+  ],
+  "bestanden": true,
+  "projekt": "P04",
+  "ticket": "P04-T01",
+  "beginnUtc": "2026-11-01T08:19:11.686964+00:00",
+  "endeUtc": "2026-11-01T08:19:11.688018+00:00",
+  "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+  "befehl": "uv run --offline --python 3.12 python -X utf8 pruefungen/vertrag_pruefen.py",
+  "grenze": "Lokale Vertragsprüfung; keine HTTP-Antworten, kein Java-/Angular-Lauf",
+  "sha256": {
+    "vertraege/routes.json": "1bb8c12d7f44eb923ff0aad985109068f395b28ea941b5269305aa2f6769feb8",
+    "vertraege/anfragen.json": "ef296b632c5f416ca435be402d2a654bb8ad69d3449c7ad5f15541b0fbff5bc4",
+    "beispieldaten/auftraege.json": "1d640936640360cefa05900f32af7a98cd230050a194685a892af919abdc06b0",
+    "projekt.json": "6c89c43d7336d8fb68f9f8558a9caa747de97f53b3cad2da5261f6e48c69a7d9",
+    "pruefungen/vertrag_pruefen.py": "53ca06dfa02e72356555fe0a7a499c691dbeec1b21e62374c57eee8a913b2c41"
+  }
+}

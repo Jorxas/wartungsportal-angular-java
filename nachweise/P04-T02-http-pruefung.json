@@ -1,0 +1,1771 @@
+{
+  "beispieldatensaetze": 2,
+  "ausgelassenePatchVertragsfaelle": [
+    "erledigen",
+    "wieder_oeffnen",
+    "zustand_wiederholen",
+    "zustand_unbekannt",
+    "zustand_fehlt",
+    "patch_zusatzfeld",
+    "json_doppelter_schluessel",
+    "patch_unbekannt",
+    "eingabefehler_vor_existenz"
+  ],
+  "gepruefteRouten": [
+    "GET /auftraege",
+    "GET /auftraege/:kennung",
+    "POST /auftraege"
+  ],
+  "bestanden": true,
+  "projekt": "P04",
+  "ticket": "P04-T02",
+  "beginnUtc": "2026-11-02T07:27:45.455487+00:00",
+  "endeUtc": "2026-11-02T07:28:03.558876+00:00",
+  "python": "3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]",
+  "java": "java version \"25\" 2025-09-16 LTS\nJava(TM) SE Runtime Environment (build 25+37-LTS-3491)\nJava HotSpot(TM) 64-Bit Server VM (build 25+37-LTS-3491, mixed mode, sharing)",
+  "befehl": "uv run --offline --python 3.12 python -X utf8 pruefungen/api_pruefen.py",
+  "httpAnfragen": 62,
+  "ergebnisse": [
+    {
+      "fall": "liste",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "183"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "liste_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "183"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "detail_vorhanden",
+      "methode": "GET",
+      "pfad": "/auftraege/A01",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "88"
+      },
+      "antwort": {
+        "kennung": "A01",
+        "bezeichnung": "Sensor prüfen",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "detail_vorhanden_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "183"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "anlegen",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 201,
+      "status": 201,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "86",
+        "location": "/auftraege/A03"
+      },
+      "antwort": {
+        "kennung": "A03",
+        "bezeichnung": "Ventil prüfen",
+        "prioritaet": "hoch",
+        "zustand": "offen"
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"hoch\"}"
+    },
+    {
+      "fall": "anlegen_wiederfinden",
+      "methode": "GET",
+      "pfad": "/auftraege/A03",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "86"
+      },
+      "antwort": {
+        "kennung": "A03",
+        "bezeichnung": "Ventil prüfen",
+        "prioritaet": "hoch",
+        "zustand": "offen"
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "anlegen_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "270"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_120_zeichen",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 201,
+      "status": 201,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "194",
+        "location": "/auftraege/A04"
+      },
+      "antwort": {
+        "kennung": "A04",
+        "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_120_zeichen_wiederfinden",
+      "methode": "GET",
+      "pfad": "/auftraege/A04",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "194"
+      },
+      "antwort": {
+        "kennung": "A04",
+        "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_120_zeichen_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "465"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_ein_zeichen",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 201,
+      "status": 201,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "76",
+        "location": "/auftraege/A05"
+      },
+      "antwort": {
+        "kennung": "A05",
+        "bezeichnung": "Ö",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"Ö\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_ein_zeichen_wiederfinden",
+      "methode": "GET",
+      "pfad": "/auftraege/A05",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "76"
+      },
+      "antwort": {
+        "kennung": "A05",
+        "bezeichnung": "Ö",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_ein_zeichen_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_leer",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_leer_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_leerraum",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\" \\t\\n\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_leerraum_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_121_zeichen",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_121_zeichen_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "prioritaet_fehlt",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"Ventil prüfen\"}"
+    },
+    {
+      "fall": "prioritaet_fehlt_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "prioritaet_unbekannt",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"dringend\"}"
+    },
+    {
+      "fall": "prioritaet_unbekannt_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_null",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":null,\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_null_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "bezeichnung_zahl",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":42,\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "bezeichnung_zahl_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "kennung_vom_client",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "kennung_vom_client_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "zustand_beim_anlegen",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"normal\",\"zustand\":\"erledigt\"}"
+    },
+    {
+      "fall": "zustand_beim_anlegen_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "rumpf_fehlt",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "rumpf_fehlt_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "rumpf_array",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "[]"
+    },
+    {
+      "fall": "rumpf_array_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "json_kaputt",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{"
+    },
+    {
+      "fall": "json_kaputt_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "get_mit_rumpf",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{}"
+    },
+    {
+      "fall": "get_mit_rumpf_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "abfrageparameter",
+      "methode": "GET",
+      "pfad": "/auftraege?zustand=offen",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "abfrageparameter_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "kennung_falsches_format",
+      "methode": "GET",
+      "pfad": "/auftraege/17",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "kennung_falsches_format_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "detail_unbekannt",
+      "methode": "GET",
+      "pfad": "/auftraege/A99",
+      "erwartet": 404,
+      "status": 404,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90"
+      },
+      "antwort": {
+        "code": "auftrag_nicht_gefunden",
+        "meldung": "Der angefragte Auftrag wurde nicht gefunden."
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "detail_unbekannt_speicher",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "542"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "unicode_120",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 201,
+      "status": 201,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "554",
+        "location": "/auftraege/A06"
+      },
+      "antwort": {
+        "kennung": "A06",
+        "bezeichnung": "🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\": \"\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\", \"prioritaet\": \"normal\"}"
+    },
+    {
+      "fall": "json_escapes",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 201,
+      "status": 201,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "134",
+        "location": "/auftraege/A07"
+      },
+      "antwort": {
+        "kennung": "A07",
+        "bezeichnung": "  Öl \"prüfen\" \\ Leitung\n\t\b\f\r  ",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\": \"  \\u00d6l \\\"pr\\u00fcfen\\\" \\\\ Leitung\\n\\t\\b\\f\\r  \", \"prioritaet\": \"normal\"}"
+    },
+    {
+      "fall": "unicode_121",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\": \"\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\\ud83d\\udd27\", \"prioritaet\": \"normal\"}"
+    },
+    {
+      "fall": "unicode_leerraum",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"\\u00a0\\u0085\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "doppelter_schluessel",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"a\",\"bezeichnung\":\"b\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "json_nachlauf",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"a\",\"prioritaet\":\"normal\"}{}"
+    },
+    {
+      "fall": "json_schlusskomma",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"a\",\"prioritaet\":\"normal\",}"
+    },
+    {
+      "fall": "json_escape_unbekannt",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"\\x\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "einzelnes_surrogat",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": "{\"bezeichnung\":\"\\ud800\",\"prioritaet\":\"normal\"}"
+    },
+    {
+      "fall": "utf8_ungueltig",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": {
+        "hex": "7b2262657a656963686e756e67223a22ff222c227072696f726974616574223a226e6f726d616c227d"
+      }
+    },
+    {
+      "fall": "rumpf_zu_gross",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 400,
+      "status": 400,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "87"
+      },
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      },
+      "bestanden": true,
+      "anfrage": {
+        "hex": "2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020"
+      }
+    },
+    {
+      "fall": "medientyp_falsch",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 415,
+      "status": 415,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "93"
+      },
+      "antwort": {
+        "code": "medientyp_nicht_unterstuetzt",
+        "meldung": "Erwartet wird application/json mit UTF-8."
+      },
+      "bestanden": true,
+      "anfrage": "{}"
+    },
+    {
+      "fall": "medientyp_fehlt",
+      "methode": "POST",
+      "pfad": "/auftraege",
+      "erwartet": 415,
+      "status": 415,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "93"
+      },
+      "antwort": {
+        "code": "medientyp_nicht_unterstuetzt",
+        "meldung": "Erwartet wird application/json mit UTF-8."
+      },
+      "bestanden": true,
+      "anfrage": "{}"
+    },
+    {
+      "fall": "patch_nicht_umgesetzt",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "erwartet": 405,
+      "status": 405,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "allow": "GET",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "95"
+      },
+      "antwort": {
+        "code": "methode_nicht_erlaubt",
+        "meldung": "Diese Methode ist für die Route nicht verfügbar."
+      },
+      "bestanden": true,
+      "anfrage": "{\"zustand\":\"erledigt\"}"
+    },
+    {
+      "fall": "route_unbekannt",
+      "methode": "GET",
+      "pfad": "/unbekannt",
+      "erwartet": 404,
+      "status": 404,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "86"
+      },
+      "antwort": {
+        "code": "route_nicht_gefunden",
+        "meldung": "Die angefragte Route wurde nicht gefunden."
+      },
+      "bestanden": true
+    },
+    {
+      "fall": "speicher_abschliessend",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:27:54 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "1232"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A03",
+          "bezeichnung": "Ventil prüfen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A04",
+          "bezeichnung": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A05",
+          "bezeichnung": "Ö",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A06",
+          "bezeichnung": "🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧🔧",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A07",
+          "bezeichnung": "  Öl \"prüfen\" \\ Leitung\n\t\b\f\r  ",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        }
+      ],
+      "bestanden": true
+    },
+    {
+      "fall": "neustart_nur_beispieldaten",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "kopf": {
+        "date": "Mon, 02 Nov 2026 07:28:03 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "183"
+      },
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ],
+      "bestanden": true
+    }
+  ],
+  "serverlaeufe": [
+    {
+      "befehl": [
+        "C:\\Program Files\\Java\\jdk-25\\bin\\java.exe",
+        "-Dfile.encoding=UTF-8",
+        "src/backend/Main.java",
+        "0"
+      ],
+      "beginnUtc": "2026-11-02T07:27:45.464678+00:00",
+      "startmeldung": "API bereit: http://127.0.0.1:50480",
+      "endeUtc": "2026-11-02T07:27:54.979754+00:00",
+      "fehlerausgabe": "",
+      "beendetDurchPruefer": true
+    },
+    {
+      "befehl": [
+        "C:\\Program Files\\Java\\jdk-25\\bin\\java.exe",
+        "-Dfile.encoding=UTF-8",
+        "src/backend/Main.java",
+        "0"
+      ],
+      "beginnUtc": "2026-11-02T07:27:54.981996+00:00",
+      "startmeldung": "API bereit: http://127.0.0.1:53035",
+      "endeUtc": "2026-11-02T07:28:03.558876+00:00",
+      "fehlerausgabe": "",
+      "beendetDurchPruefer": true
+    }
+  ],
+  "sha256": {
+    "src/backend/Main.java": "da40f8a85005e6eef6beac169a7e516d390b3a4d6dd0627b2e855d71f0032c62",
+    "pruefungen/api_pruefen.py": "e0830311a47458e937c136cbace0b8bb0cb17131b04567e5cd7b129fcc809e68",
+    "beispieldaten/auftraege.json": "1d640936640360cefa05900f32af7a98cd230050a194685a892af919abdc06b0",
+    "vertraege/routes.json": "1bb8c12d7f44eb923ff0aad985109068f395b28ea941b5269305aa2f6769feb8",
+    "vertraege/anfragen.json": "ef296b632c5f416ca435be402d2a654bb8ad69d3449c7ad5f15541b0fbff5bc4"
+  },
+  "grenze": "Echte lokale Java-HTTP-API; kein PATCH, Angular, Spring oder dauerhafter Speicher"
+}
