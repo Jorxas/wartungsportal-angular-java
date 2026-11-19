@@ -1,0 +1,14 @@
+{
+  "projekt": "P04",
+  "phase": 2,
+  "snapshot": "31dff1f9d67e0ffb9632ba3073de4a46ba8c17f04f0d9671a35e2fb1d77ca69d",
+  "quellcommit": "de343127e2961a8ea28dafe50d29d1e1487b3223",
+  "lokal_committet_am": "2026-11-03T21:13:32+01:00",
+  "technisch_gesichert_am": "2026-11-02T07:22:57.488Z",
+  "unveraenderlicher_quellstand_geprueft": true,
+  "redaktionell_angepasst": [
+    "START.md"
+  ],
+  "hinweis": "Lokale Pfade in Berichten entfernt; Quellprogramme nicht übersetzt oder simuliert. Die erste öffentliche Übernahme ist kein nachträglich erfundener Entwicklungsschritt. Native Produktnachweise behalten ihre ursprünglichen tatsächlichen Zeiten.",
+  "veroeffentlichungskopie_fachlich_geprueft_am": "2026-11-18T15:21:21.998Z"
+}

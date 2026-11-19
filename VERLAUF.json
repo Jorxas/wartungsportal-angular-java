@@ -1,0 +1,16 @@
+[
+  {
+    "phase": 1,
+    "ticket": "P04-T01",
+    "quellcommit": "5ab458b7bf0a1deaaa309489bb5e15434a73a1ba",
+    "lokal_committet_am": "2026-11-01T15:20:24+01:00",
+    "snapshot": "5dec56b210e0c0b295a7906a58d8964418e9960aea2483c29d821b01dda8dc94"
+  },
+  {
+    "phase": 2,
+    "ticket": "P04-T02",
+    "quellcommit": "de343127e2961a8ea28dafe50d29d1e1487b3223",
+    "lokal_committet_am": "2026-11-03T21:13:32+01:00",
+    "snapshot": "31dff1f9d67e0ffb9632ba3073de4a46ba8c17f04f0d9671a35e2fb1d77ca69d"
+  }
+]
