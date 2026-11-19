@@ -1,0 +1,135 @@
+{
+  "zeit": "2026-11-17T17:54:35.266Z",
+  "browser": "159.0.8154.6",
+  "playwright": "1.65.1",
+  "ergebnis": "bestanden",
+  "echteJavaApiMitEigenemPort": true,
+  "frontend": "Tatsächlich gebautes Angular-Bundle mit lokalem Prüfproxy",
+  "pruefungen": [
+    "Liste/Detail/Formular",
+    "Tab/Enter und sichtbarer Fokus",
+    "Pflichtfelder/Leerraum/121 Zeichen/120 Unicode-Codepunkte",
+    "Echte GET-/POST-Aufrufe",
+    "Laden und Doppelsendesperre",
+    "404 und Neuladen",
+    "API wirklich beenden/neustarten; Eingabe behalten"
+  ],
+  "http": [
+    {
+      "zeit": "2026-11-17T17:54:25.364Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege",
+      "status": 200,
+      "eingabe": "",
+      "antwort": "[{\"kennung\":\"A01\",\"bezeichnung\":\"Sensor prüfen\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"},{\"kennung\":\"A02\",\"bezeichnung\":\"Kabel austauschen\",\"prioritaet\":\"hoch\",\"zustand\":\"erledigt\"}]",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:26.490Z",
+      "methode": "POST",
+      "pfad": "/api/auftraege",
+      "status": 201,
+      "eingabe": "{\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"hoch\"}",
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"hoch\",\"zustand\":\"offen\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:27.103Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A03",
+      "status": 200,
+      "eingabe": "",
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"hoch\",\"zustand\":\"offen\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:27.905Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege",
+      "status": 200,
+      "eingabe": "",
+      "antwort": "[{\"kennung\":\"A01\",\"bezeichnung\":\"Sensor prüfen\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"},{\"kennung\":\"A02\",\"bezeichnung\":\"Kabel austauschen\",\"prioritaet\":\"hoch\",\"zustand\":\"erledigt\"},{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil prüfen\",\"prioritaet\":\"hoch\",\"zustand\":\"offen\"}]",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:28.766Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A99",
+      "status": 404,
+      "eingabe": "",
+      "antwort": "{\"code\":\"auftrag_nicht_gefunden\",\"meldung\":\"Der angefragte Auftrag wurde nicht gefunden.\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:29.660Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A99",
+      "status": 404,
+      "eingabe": "",
+      "antwort": "{\"code\":\"auftrag_nicht_gefunden\",\"meldung\":\"Der angefragte Auftrag wurde nicht gefunden.\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:30.593Z",
+      "methode": "POST",
+      "pfad": "/api/auftraege",
+      "status": 201,
+      "eingabe": "{\"bezeichnung\":\"😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀\",\"prioritaet\":\"normal\"}",
+      "antwort": "{\"kennung\":\"A04\",\"bezeichnung\":\"😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:31.215Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A04",
+      "status": 200,
+      "eingabe": "",
+      "antwort": "{\"kennung\":\"A04\",\"bezeichnung\":\"😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:32.021Z",
+      "methode": "POST",
+      "pfad": "/api/auftraege",
+      "status": 503,
+      "echt": false,
+      "grund": "Tatsächlich beendete lokale Java-API nicht erreichbar."
+    },
+    {
+      "zeit": "2026-11-17T17:54:32.153Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege",
+      "status": 503,
+      "echt": false,
+      "grund": "Tatsächlich beendete lokale Java-API nicht erreichbar."
+    },
+    {
+      "zeit": "2026-11-17T17:54:33.311Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege",
+      "status": 200,
+      "eingabe": "",
+      "antwort": "[{\"kennung\":\"A01\",\"bezeichnung\":\"Sensor prüfen\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"},{\"kennung\":\"A02\",\"bezeichnung\":\"Kabel austauschen\",\"prioritaet\":\"hoch\",\"zustand\":\"erledigt\"}]",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:33.935Z",
+      "methode": "POST",
+      "pfad": "/api/auftraege",
+      "status": 201,
+      "eingabe": "{\"bezeichnung\":\"Eingabe erhalten\",\"prioritaet\":\"normal\"}",
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Eingabe erhalten\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"}",
+      "echt": true
+    },
+    {
+      "zeit": "2026-11-17T17:54:34.553Z",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A03",
+      "status": 200,
+      "eingabe": "",
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Eingabe erhalten\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"}",
+      "echt": true
+    }
+  ],
+  "grenze": "Kein menschliches Nutzerfeedback und keine umfassende Barrierefreiheitsprüfung. Flüchtige API; keine Zustandsänderung in T03."
+}

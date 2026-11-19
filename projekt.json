@@ -1,6 +1,8 @@
 {
   "id": "P04",
-  "status": "java_api_lesen_erstellen_geprueft",
+  "status": "P04-T03 lokal geprüft: echtes Angular/Java mit Tastatur, HTTP und Fehlerzuständen; T04 offen",
+  "blockiertesTicket": "P04-T03",
+  "blockade": "Angular-Quellen und Templates kompilieren. Bundler-Verzeichniszugriff verweigert; Browserzugang nicht verfügbar und Opera-Zugriff abgelehnt. Laufende Oberfläche und Ticketabnahme offen.",
   "businessImplemented": false,
   "fixture": "beispieldaten/auftraege.json",
   "format": "json",
