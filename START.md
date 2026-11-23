@@ -141,3 +141,31 @@ Tatsächlich bestanden: Liste mit zwei Originalaufträgen, Tab/Enter-Navigation 
 Wiederholung im Projektordner: `npm.cmd run bauen`, danach `node pruefungen/browser_abnahme.cjs`. Playwright ist exakt als Entwicklungsabhängigkeit versioniert; bei fehlendem Browser zunächst dessen regulären Chromium-Download ausführen. Quellen: [Playwright Page API](https://playwright.dev/docs/api/class-page), [Prüfassertionen](https://playwright.dev/docs/test-assertions). Kein Wechsel von Sandboxrechten oder Abschalten von Grafikschutz für diese Prüfung.
 
 T04 bleibt offen: Zustand ändern, vollständigen Ablauf und Entwicklungsserver prüfen. API weiterhin flüchtig, kein Spring, keine Persistenz. Studentische T03-Schätzung 105 Minuten; Gesamtdauer der Koordinatorwiederaufnahme nicht separat gemessen. Dokumentationszeit: 2026-11-17T17:55:55.727Z. Keine menschliche Eigenleistung behauptet und kein Projektcommit erstellt.
+
+
+## P04-T04: aktuelle Wiederholung und Blockade
+
+Am 17. November im isolierten Arbeiterkontext ausgeführt:
+
+~~~powershell
+node pruefungen/ablauf_pruefen.cjs
+node node_modules/@angular/compiler-cli/bundles/src/bin/ngc.js --noEmit -p tsconfig.json
+~~~
+
+Erster Befehl: Rückgabecode 1. Startet die echte Java-API mit freiem Port und prüft 30 echte HTTP-Anfragen: zwei Originalaufträge, alle neun vorhandenen PATCH-Vertragsfälle einschließlich Wiederholung und Wiederöffnung, unveränderte übrige Felder und unveränderter Speicher bei Fehlern. Danach startet er separat die echte Angular-CLI mit `serve --host 127.0.0.1 --port 0 --proxy-config ausgabe/P04-T04-proxy.json`. Die temporäre Proxydatei wird aus `src/frontend/proxy.json` erzeugt; ausschließlich das Ziel erhält den freien Java-Port. Kein fremder Dienst wird beendet. Angular scheitert beim Bauen mit verweigertem Verzeichniszugriff; deshalb kein Browser gestartet und kein neuer Oberflächenfall ausgeführt. Eigene Java-/Angular-Prozesse beendet. Bericht mit vollständigen Befehlen, Ausgaben und HTTP-Antworten: `nachweise/P04-T04-ablauf.json`. Bei erfolgreichem künftigem Start würde derselbe Prüfer echte Chromium-Bedienung ausführen; diese nachfolgenden Fälle sind derzeit nur Prüfquelltext.
+
+Zweiter Befehl: Rückgabecode 0, echte Angular- und Templatekompilierung; per vorhandener Python-Standardbibliothek protokolliert unter `nachweise/P04-T04-kompilierung.json`. Keine Browserabnahme. Offline installierte, exakt versionierte Pakete aus `package.json`/`package-lock.json` verwendet, nichts nachinstalliert und keine Rechte geändert. Die früheren T03-Nachweise wurden nicht überschrieben.
+
+Die neue Zustandsänderung ist im Java-Arbeitsspeicher umgesetzt, nicht dauerhaft gespeichert. Ihre Angular-Bedienung bleibt ungeprüft. Wiederholung benötigt einen regulär zugänglichen Bundler im erlaubten Arbeitskontext und anschließend den vorhandenen Playwright-Browser. Fehlende Voraussetzung nicht durch eine Ersatzsimulation umgehen. Sämtliche Wiederholungsdateien stehen in `nachweise/P04-T04-teilstand.md`.
+
+## Vollständiger Ablauf vom 17. November 2026
+
+P04-T04 und Lastenheft lokal geprüft. Der reguläre Angular-Entwicklungsserver und die echte Java-API wurden getrennt auf eigenen freien lokalen Ports gestartet. Originale Proxykonfiguration verwendet, nur Zielport durch den eigenen Java-Port ersetzt. 42 echte HTTP-Anfragen protokolliert, einschließlich PATCH-Vertragsfällen, Erstellen und Zustandswechsel. Kein fremder Port oder Dienst beendet.
+
+Tastaturablauf bestanden: neuer Auftrag, verständliche Eingabefehler und Fokus, echte POST-Antwort 201, per Tab/Enter auf „Als erledigt markieren“, echte PATCH-Antwort 200, Speicheranzeige und gesperrter Knopf, gespeicherter Zustand nach Neuladen und in Liste, Wiederöffnen sowie 404. Java tatsächlich beendet: Speichern scheitert verständlich, vorheriger Zustand bleibt offen und erneuter Versuch ist bedienbar. Zwei Originalbeispiele und ihr SHA256 unverändert. Keine unerwarteten JavaScript-Fehler. Alle gestarteten Prüfprozesse beendet.
+
+Der erste Koordinatorlauf fand einen echten Fokusverlust nach Deaktivieren/Wiederaktivieren des Speicherknopfs. Die Oberfläche stellt nun nach dem Rendern den Fokus auf den Auslöser zurück, sofern die Ansicht noch lebt. [Fehlversuch](nachweise/P04-T04-fokus-fehlversuch.json) bleibt erhalten. Der erneute vollständige Lauf bestand. [Echter Ablauf mit HTTP, Versionen und Prüfsummen](nachweise/P04-T04-ablauf.json), [gespeicherter Zustand](nachweise/P04-T04-erledigt.png), [echter Ausfallfehler](nachweise/P04-T04-zustandsfehler.png). Bilder visuell kontrolliert.
+
+Wiederholung: `node pruefungen/ablauf_pruefen.cjs` nach Installation der versionierten Projektabhängigkeiten und des regulären Playwright-Chromiums. Der aktuelle Koordinator konnte den regulären Bundler mit vorhandenen Rechten ausführen; die frühere Verweigerung des Hintergrundarbeiters bleibt als gesonderter Versuch dokumentiert. Keine Sandbox- oder Systemrechte geändert. Kein menschliches Nutzerfeedback vorgefunden oder erfunden. Gezielte Tastatur-/Semantikprüfung ist keine umfassende Barrierefreiheitszertifizierung. Lokaler flüchtiger Speicher; kein Spring, keine Authentifizierung und keine Produktivbereitstellung.
+
+Lastenheft A1–A4 durch gemeinsames Datenmodell, echte Fehler-/Tastaturfälle und getrennte Java-/Angular-HTTP-Ausführung geprüft. Studentische Schätzung T04: 60 Minuten; bisherige Arbeiterzeit bleibt separat dokumentiert, Koordinator-Gesamtdauer nicht separat gemessen. Dokumentationszeit: 2026-11-17T22:37:56.520Z. Projektcommit und echte Schlussvalidierung folgen getrennt.

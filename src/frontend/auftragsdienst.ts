@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Auftragseingabe, Wartungsauftrag } from './fachmodell';
+import { Auftragseingabe, Auftragszustand, Wartungsauftrag } from './fachmodell';
 
 @Injectable({ providedIn: 'root' })
 export class Auftragsdienst {
@@ -11,6 +11,9 @@ export class Auftragsdienst {
   }
   anlegen(eingabe: Auftragseingabe) {
     return this.http.post<Wartungsauftrag>('/api/auftraege', eingabe);
+  }
+  zustandAendern(kennung: string, zustand: Auftragszustand) {
+    return this.http.patch<Wartungsauftrag>('/api/auftraege/' + encodeURIComponent(kennung), { zustand });
   }
 }
 

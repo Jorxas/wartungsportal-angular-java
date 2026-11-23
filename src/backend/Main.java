@@ -77,8 +77,9 @@ public class Main {
                 return;
             }
             String methode = austausch.getRequestMethod();
-            if (!methode.equals("GET") && !(sammlung && methode.equals("POST"))) {
-                austausch.getResponseHeaders().set("Allow", sammlung ? "GET, POST" : "GET");
+            if (!methode.equals("GET") && !(sammlung && methode.equals("POST"))
+                    && !(detail && methode.equals("PATCH"))) {
+                austausch.getResponseHeaders().set("Allow", sammlung ? "GET, POST" : "GET, PATCH");
                 fehler(austausch, 405, "methode_nicht_erlaubt", "Diese Methode ist für die Route nicht verfügbar.");
                 return;
             }
@@ -108,6 +109,20 @@ public class Main {
             }
             String text = StandardCharsets.UTF_8.newDecoder().decode(ByteBuffer.wrap(rumpf)).toString();
             Map<String, String> felder = new Json(text).objektLesen();
+            if (methode.equals("PATCH")) {
+                verlangen(felder.keySet().equals(Set.of("zustand")));
+                verlangen(Set.of("offen", "erledigt").contains(felder.get("zustand")));
+                Wartungsauftrag bisher = auftraege.get(kennung);
+                if (bisher == null) {
+                    fehler(austausch, 404, "auftrag_nicht_gefunden", "Der angefragte Auftrag wurde nicht gefunden.");
+                } else {
+                    Wartungsauftrag geaendert = new Wartungsauftrag(kennung, bisher.bezeichnung(),
+                        bisher.prioritaet(), felder.get("zustand"));
+                    auftraege.put(kennung, geaendert);
+                    antworten(austausch, 200, geaendert.alsJson());
+                }
+                return;
+            }
             verlangen(felder.keySet().equals(Set.of("bezeichnung", "prioritaet")));
             eingabePruefen(felder.get("bezeichnung"), felder.get("prioritaet"));
             String neueKennung = "A" + String.format(java.util.Locale.ROOT, "%02d", naechsteNummer++);

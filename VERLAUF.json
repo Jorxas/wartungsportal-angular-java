@@ -4,6 +4,7 @@
     "ticket": "P04-T01",
     "quellcommit": "5ab458b7bf0a1deaaa309489bb5e15434a73a1ba",
     "lokal_committet_am": "2026-11-01T15:20:24+01:00",
+    "technisch_gesichert_am": "2026-11-01T08:20:41.354Z",
     "snapshot": "5dec56b210e0c0b295a7906a58d8964418e9960aea2483c29d821b01dda8dc94"
   },
   {
@@ -11,6 +12,7 @@
     "ticket": "P04-T02",
     "quellcommit": "de343127e2961a8ea28dafe50d29d1e1487b3223",
     "lokal_committet_am": "2026-11-03T21:13:32+01:00",
+    "technisch_gesichert_am": "2026-11-02T07:32:15.357Z",
     "snapshot": "31dff1f9d67e0ffb9632ba3073de4a46ba8c17f04f0d9671a35e2fb1d77ca69d"
   },
   {
@@ -18,6 +20,15 @@
     "ticket": "P04-T03",
     "quellcommit": "b9b0f41eb5b54be56d7b318c8a29c6866f3525e4",
     "lokal_committet_am": "2026-11-19T05:26:28+01:00",
+    "technisch_gesichert_am": "2026-11-17T17:55:56.425Z",
     "snapshot": "21c3dc911bfeb282c2ec3e603c79ea18f9abf3fdd8be5cba8fe4bc7c6d9c4e4a"
+  },
+  {
+    "phase": 4,
+    "ticket": "P04-T04",
+    "quellcommit": null,
+    "lokal_committet_am": null,
+    "technisch_gesichert_am": "2026-11-17T22:37:57.842Z",
+    "snapshot": "3a2ecee44c44bbbf9489f89ba905fee2ce21e903fb46b19e83f28a743e3ececd"
   }
 ]

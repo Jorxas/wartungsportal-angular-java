@@ -12,10 +12,10 @@ Lokale Einzelbenutzung, synthetische Daten und ein vorführbarer kleiner Ablauf.
 
 ## Abnahmekriterien
 
-- [ ] A1 — Liste, Detailansicht und Formular verwenden dasselbe Datenmodell.
-- [ ] A2 — Leere Bezeichnung ablehnen und unbekannte Aufträge verständlich melden.
-- [ ] A3 — Tastaturbedienung, Beschriftungen sowie Lade- und Fehlerzustände kontrollieren.
-- [ ] A4 — Java-API und Angular getrennt starten und einen echten HTTP-Aufruf dokumentieren.
+- [x] A1 — Liste, Detailansicht und Formular verwenden dasselbe Datenmodell.
+- [x] A2 — Leere Bezeichnung ablehnen und unbekannte Aufträge verständlich melden.
+- [x] A3 — Tastaturbedienung, Beschriftungen sowie Lade- und Fehlerzustände kontrollieren.
+- [x] A4 — Java-API und Angular getrennt starten und einen echten HTTP-Aufruf dokumentieren.
 
 ## Voraussetzungen
 
@@ -45,3 +45,5 @@ Eine gültige Eingabe, einen Fehlerfall, das Ergebnis und die zuständige Quellc
 Eigenes Java-/Angular-Lernprojekt zur Wartungsverwaltung; Speicherlösung und Grenzen des Prototyps angeben.
 
 Derzeit zutreffend: „Eigenes Lernprojekt in Vorbereitung: Kleines Portal für Wartungsaufträge“. „Umgesetzt“ setzt die tatsächliche Abnahme voraus.
+
+Abnahme am 17. November 2026: echte T03-Bundle- und T04-Entwicklungsserverläufe mit separater Java-API, gemeinsamem Modell, Fehler-/Tastatur-/HTTP-Prüfungen und korrigierter Fokuswiederherstellung. Nachweise: `nachweise/P04-T03-browserabnahme.json` und `nachweise/P04-T04-ablauf.json`. Keine umfassende Barrierefreiheitszertifizierung.

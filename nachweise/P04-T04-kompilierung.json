@@ -1,0 +1,17 @@
+{
+  "projekt": "P04",
+  "ticket": "P04-T04",
+  "beginnUtc": "2026-11-17T18:00:40.160586+00:00",
+  "endeUtc": "2026-11-17T18:00:45.709216+00:00",
+  "befehl": [
+    "node",
+    "node_modules/@angular/compiler-cli/bundles/src/bin/ngc.js",
+    "--noEmit",
+    "-p",
+    "tsconfig.json"
+  ],
+  "rueckgabecode": 0,
+  "ausgabe": "",
+  "fehlerausgabe": "",
+  "grenze": "Angular-Compiler und Templates; keine ausgefuehrte Oberflaeche."
+}

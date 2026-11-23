@@ -4,7 +4,7 @@ Ein Wartungsteam möchte Aufträge anlegen, wiederfinden und ihren Bearbeitungss
 
 ![Projektaufbau](dokumentation/ueberblick.svg)
 
-**Veröffentlichungsstand: Phase 3/4.** Dieses eigenständige Repository übernimmt zunächst den bereits lokal committeten Stand. Weitere fachliche Phasen werden im Abstand von mindestens vier Stunden veröffentlicht. Die technische Entwicklung und die öffentliche Veröffentlichung haben unterschiedliche echte Zeitpunkte.
+**Veröffentlichungsstand: Phase 4/4.** Dieses eigenständige Repository veröffentlicht zuvor lokal entwickelte, geprüfte und unveränderlich gesicherte Stände. Alle vier dokumentierten Basisphasen sind veröffentlicht. Die technische Entwicklung und die öffentliche Veröffentlichung haben unterschiedliche echte Zeitpunkte.
 
 ## Was hier zu sehen ist
 
@@ -13,7 +13,7 @@ Ein Wartungsteam möchte Aufträge anlegen, wiederfinden und ihren Bearbeitungss
 | 1 | Datenmodell und API-Vertrag | Ja |
 | 2 | Java-HTTP-Backend | Ja |
 | 3 | Angular-Ansichten und Formular | Ja |
-| 4 | Bedienung, Zustandswechsel und Ausfalltests | Folgt |
+| 4 | Bedienung, Zustandswechsel und Ausfalltests | Ja |
 
 ## Fachlicher Nutzen
 
@@ -35,8 +35,6 @@ Ausführliche technische Befehle: [START.md](START.md). [Öffentlicher Prüfstan
 ## Ergebnis des lokal geprüften Schlussstands
 
 Drei Ansichten, Auftragsanlage und Zustandswechsel; Tastaturbedienung und API-Ausfall im Browser geprüft.
-
-**Dieser Schlussstand ist lokal bereits geprüft, aber noch nicht vollständig in diesem Repository veröffentlicht.** Maßgeblich für den hier verfügbaren Code ist die Phasentabelle oben.
 
 ## Grenzen
 

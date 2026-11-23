@@ -1,0 +1,656 @@
+{
+  "projekt": "P04",
+  "ticket": "P04-T04",
+  "beginnUtc": "2026-11-17T22:30:13.965Z",
+  "bestanden": false,
+  "http": [
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "offen"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "rumpf": "{\"zustand\":\"erledigt\"}",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": {
+        "kennung": "A01",
+        "bezeichnung": "Sensor prüfen",
+        "prioritaet": "normal",
+        "zustand": "erledigt"
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A02",
+      "rumpf": "{\"zustand\":\"offen\"}",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": {
+        "kennung": "A02",
+        "bezeichnung": "Kabel austauschen",
+        "prioritaet": "hoch",
+        "zustand": "offen"
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "offen"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A02",
+      "rumpf": "{\"zustand\":\"erledigt\"}",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": {
+        "kennung": "A02",
+        "bezeichnung": "Kabel austauschen",
+        "prioritaet": "hoch",
+        "zustand": "erledigt"
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "rumpf": "{\"zustand\":\"in_arbeit\"}",
+      "erwartet": 400,
+      "status": 400,
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "rumpf": "{}",
+      "erwartet": 400,
+      "status": 400,
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "rumpf": "{\"zustand\":\"erledigt\",\"prioritaet\":\"hoch\"}",
+      "erwartet": 400,
+      "status": 400,
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "rumpf": "{\"zustand\":\"offen\",\"zustand\":\"erledigt\"}",
+      "erwartet": 400,
+      "status": 400,
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A99",
+      "rumpf": "{\"zustand\":\"erledigt\"}",
+      "erwartet": 404,
+      "status": 404,
+      "antwort": {
+        "code": "auftrag_nicht_gefunden",
+        "meldung": "Der angefragte Auftrag wurde nicht gefunden."
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A99",
+      "rumpf": "{\"zustand\":\"in_arbeit\"}",
+      "erwartet": 400,
+      "status": 400,
+      "antwort": {
+        "code": "ungueltige_anfrage",
+        "meldung": "Anfrage ungueltig: Feld oder Kennung pruefen."
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "GET",
+      "pfad": "/auftraege",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": [
+        {
+          "kennung": "A01",
+          "bezeichnung": "Sensor prüfen",
+          "prioritaet": "normal",
+          "zustand": "erledigt"
+        },
+        {
+          "kennung": "A02",
+          "bezeichnung": "Kabel austauschen",
+          "prioritaet": "hoch",
+          "zustand": "erledigt"
+        }
+      ]
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A01",
+      "rumpf": "{\"zustand\":\"offen\"}",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": {
+        "kennung": "A01",
+        "bezeichnung": "Sensor prüfen",
+        "prioritaet": "normal",
+        "zustand": "offen"
+      }
+    },
+    {
+      "quelle": "Direkt an echte Java-API",
+      "methode": "PATCH",
+      "pfad": "/auftraege/A02",
+      "rumpf": "{\"zustand\":\"erledigt\"}",
+      "erwartet": 200,
+      "status": 200,
+      "antwort": {
+        "kennung": "A02",
+        "bezeichnung": "Kabel austauschen",
+        "prioritaet": "hoch",
+        "zustand": "erledigt"
+      }
+    },
+    {
+      "quelle": "Echtes Angular über Entwicklungsproxy an Java",
+      "methode": "GET",
+      "pfad": "/api/auftraege",
+      "rumpf": null,
+      "status": 200,
+      "antwort": "[{\"kennung\":\"A01\",\"bezeichnung\":\"Sensor prüfen\",\"prioritaet\":\"normal\",\"zustand\":\"offen\"},{\"kennung\":\"A02\",\"bezeichnung\":\"Kabel austauschen\",\"prioritaet\":\"hoch\",\"zustand\":\"erledigt\"}]"
+    },
+    {
+      "quelle": "Echtes Angular über Entwicklungsproxy an Java",
+      "methode": "POST",
+      "pfad": "/api/auftraege",
+      "rumpf": "{\"bezeichnung\":\"Ventil pruefen\",\"prioritaet\":\"hoch\"}",
+      "status": 201,
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil pruefen\",\"prioritaet\":\"hoch\",\"zustand\":\"offen\"}"
+    },
+    {
+      "quelle": "Echtes Angular über Entwicklungsproxy an Java",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A03",
+      "rumpf": null,
+      "status": 200,
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil pruefen\",\"prioritaet\":\"hoch\",\"zustand\":\"offen\"}"
+    },
+    {
+      "quelle": "Echtes Angular über Entwicklungsproxy an Java",
+      "methode": "GET",
+      "pfad": "/api/auftraege/A03",
+      "rumpf": null,
+      "status": 200,
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil pruefen\",\"prioritaet\":\"hoch\",\"zustand\":\"offen\"}"
+    },
+    {
+      "quelle": "Echtes Angular über Entwicklungsproxy an Java",
+      "methode": "PATCH",
+      "pfad": "/api/auftraege/A03",
+      "rumpf": "{\"zustand\":\"erledigt\"}",
+      "status": 200,
+      "antwort": "{\"kennung\":\"A03\",\"bezeichnung\":\"Ventil pruefen\",\"prioritaet\":\"hoch\",\"zustand\":\"erledigt\"}"
+    }
+  ],
+  "bedienpruefungen": [],
+  "prozesse": [
+    {
+      "name": "Java-API",
+      "programm": "C:\\Program Files\\Java\\jdk-25\\bin\\java.exe",
+      "argumente": [
+        "-Dfile.encoding=UTF-8",
+        "src/backend/Main.java",
+        "0"
+      ],
+      "pid": 91888,
+      "ausgabe": "API bereit: http://127.0.0.1:64721\r\n",
+      "fehlerausgabe": "",
+      "durchPrueferBeendet": true
+    },
+    {
+      "name": "Angular-Entwicklungsserver",
+      "programm": "C:\\Program Files\\nodejs\\node.exe",
+      "argumente": [
+        "node_modules/@angular/cli/bin/ng.js",
+        "serve",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "0",
+        "--proxy-config",
+        "ausgabe/P04-T04-proxy.json"
+      ],
+      "pid": 92276,
+      "ausgabe": "> Building...\r\n√ Building...\r\nInitial chunk files | Names         |  Raw size | Estimated transfer size\nmain.js             | main          | 294.20 kB |                75.44 kB\nstyles.css          | styles        | 790 bytes |               790 bytes\n\n                    | Initial total | 294.99 kB |                76.23 kB\n\nApplication bundle generation complete. [6.045 seconds] - 2026-11-17T22:30:25.706Z\n\nWatch mode enabled. Watching for file changes...\nNOTE: Raw file sizes do not reflect development server per-request transformations.\n  ➜  Local:   http://127.0.0.1:64724/\n",
+      "fehlerausgabe": "Prebundling has been configured but will not be used because scripts optimization is enabled.\n",
+      "durchPrueferBeendet": true
+    }
+  ],
+  "javascriptFehler": [],
+  "java": "java version \"25\" 2025-09-16 LTS",
+  "node": "v24.13.0",
+  "angular": "21.2.26",
+  "playwright": "1.65.1",
+  "frontend": {
+    "adresse": "http://127.0.0.1:64724",
+    "apiAdresse": "http://127.0.0.1:64721",
+    "proxy": "Originalkonfiguration; nur Zielport durch freien Java-Port ersetzt."
+  },
+  "browser": "159.0.8154.6",
+  "fehler": "locator.innerText: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator(':focus')\u001b[22m\n\n    at pruefen (<lokaler-pfad>",
+  "endeUtc": "2026-11-17T22:30:57.136Z",
+  "sha256": {
+    "pruefungen/ablauf_pruefen.cjs": "864327012054b8233ed362f260bfcd6b804981b09d0adcce4c470d6b69f2a4e6",
+    "src/backend/Main.java": "c76baa5a9e5e9cf8653a8cc0b092b4aa23bb3de7dc12cf9dfdbcab8b2d06b74f",
+    "src/frontend/main.ts": "dca8dd8da299f1f9009ead61030187c99cfa510e6d32dcf112f86adc1c83fa6e",
+    "src/frontend/detail.ts": "5aef30dcbffbaa6a3f504941d27047e6e0b4ca8258832b9cdb3ccaf0fde9ed5a",
+    "src/frontend/auftragsdienst.ts": "137237bb6230c0f8deed7e5ff51536f358bcb04b1b68a2f19cd6a56cbb7f22b2",
+    "src/frontend/fachmodell.ts": "010f7c42c3eaadda546ac5b263519540d134cab673d0347c360759043e696fa6",
+    "src/frontend/formular.ts": "86d370f05c7f1fed58f79e0dfa9db3c01e31078270918ded56b1caa76941b3c3",
+    "src/frontend/liste.ts": "c3c739576593f6d8f3ee68906efc1af2b979dc856fa36268bb0b78b62086b6bc",
+    "src/frontend/routen.ts": "932505fa1533b69fe7512f6f7374ff4792c04944bf71ea7642806374757ea580",
+    "src/frontend/index.html": "1e1a2452a61afbbf21652c1b8a6530a808d3e469a73e45b5b983ecc034a4728b",
+    "src/frontend/gestaltung.css": "92328c6bb5e41554d9c75f03b4dc49e1fa9c1197909fcad2f558db9bab696a57",
+    "src/frontend/proxy.json": "eeb09b71bdb5c1229f08256604d096ffab268b0a11d3974d5618fce55932fc25",
+    "angular.json": "6c0de974d0093f1b5e0cec9e2a17dbbd0fdec6c77b5240da2b3763b00bde0c6d",
+    "tsconfig.json": "c36302cd311d1d0f172f5a2070963ff9c603565f79abded96805f2fae2212407",
+    "package.json": "e16297135523efc9a9711d28b65f8de601e5e1dbebd271c1f6f1fd4a80db8dc9",
+    "package-lock.json": "eb05e1c42ba6b3f2dcc50f8b5d72d43f0fe27e88eba9c172f5734f0758d753ae",
+    "beispieldaten/auftraege.json": "1d640936640360cefa05900f32af7a98cd230050a194685a892af919abdc06b0",
+    "vertraege/anfragen.json": "ef296b632c5f416ca435be402d2a654bb8ad69d3449c7ad5f15541b0fbff5bc4"
+  }
+}

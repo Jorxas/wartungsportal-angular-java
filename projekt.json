@@ -1,9 +1,9 @@
 {
   "id": "P04",
-  "status": "P04-T03 lokal geprüft: echtes Angular/Java mit Tastatur, HTTP und Fehlerzuständen; T04 offen",
-  "blockiertesTicket": "P04-T03",
-  "blockade": "Angular-Quellen und Templates kompilieren. Bundler-Verzeichniszugriff verweigert; Browserzugang nicht verfügbar und Opera-Zugriff abgelehnt. Laufende Oberfläche und Ticketabnahme offen.",
-  "businessImplemented": false,
+  "status": "Basis und Lastenheft lokal geprüft; echter Angular-/Java-Ablauf mit Zustandswechsel",
+  "blockiertesTicket": "P04-T04",
+  "blockade": "Angular-Entwicklungsserver im isolierten Arbeiterkontext: Bundler-Verzeichniszugriff verweigert. Kein T04-Browserlauf; T03-Vorleistung separat erhalten.",
+  "businessImplemented": true,
   "fixture": "beispieldaten/auftraege.json",
   "format": "json",
   "expectedRecords": 2,
@@ -15,5 +15,6 @@
     "P04-T03",
     "P04-T04"
   ],
-  "language": "de"
+  "language": "de",
+  "gesamtabnahme": "node pruefungen/ablauf_pruefen.cjs"
 }

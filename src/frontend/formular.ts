@@ -16,19 +16,21 @@ function bezeichnungPruefen(feld: AbstractControl<string>): ValidationErrors | n
     <p><a routerLink="/auftraege">Zur Liste</a></p>
     <form [formGroup]="formular" (ngSubmit)="speichern()">
       <label for="bezeichnung">Bezeichnung (Pflichtfeld)</label>
-      <input id="bezeichnung" formControlName="bezeichnung" aria-describedby="bezeichnung-hilfe"
+      <input id="bezeichnung" formControlName="bezeichnung" aria-required="true"
+        [attr.aria-describedby]="formular.controls.bezeichnung.touched && formular.controls.bezeichnung.invalid ? 'bezeichnung-hilfe bezeichnung-fehler' : 'bezeichnung-hilfe'"
         [attr.aria-invalid]="formular.controls.bezeichnung.touched && formular.controls.bezeichnung.invalid">
       <p id="bezeichnung-hilfe">1 bis 120 Zeichen, mindestens ein sichtbares Zeichen.</p>
       @if (formular.controls.bezeichnung.touched && formular.controls.bezeichnung.invalid) {
-        <p role="alert">Bitte eine Bezeichnung mit 1 bis 120 Zeichen eingeben.</p>
+        <p id="bezeichnung-fehler" role="alert">Bitte eine Bezeichnung mit 1 bis 120 Zeichen eingeben.</p>
       }
       <label for="prioritaet">Priorität (Pflichtfeld)</label>
-      <select id="prioritaet" formControlName="prioritaet"
+      <select id="prioritaet" formControlName="prioritaet" aria-required="true"
+        [attr.aria-describedby]="formular.controls.prioritaet.touched && formular.controls.prioritaet.invalid ? 'prioritaet-fehler' : null"
         [attr.aria-invalid]="formular.controls.prioritaet.touched && formular.controls.prioritaet.invalid">
         <option value="">Bitte wählen</option><option value="normal">normal</option><option value="hoch">hoch</option>
       </select>
       @if (formular.controls.prioritaet.touched && formular.controls.prioritaet.invalid) {
-        <p role="alert">Bitte eine Priorität auswählen.</p>
+        <p id="prioritaet-fehler" role="alert">Bitte eine Priorität auswählen.</p>
       }
       <p><button type="submit" [disabled]="speichert()">Auftrag anlegen</button> <a routerLink="/auftraege">Abbrechen</a></p>
       @if (speichert()) { <p role="status">Auftrag wird angelegt …</p> }
